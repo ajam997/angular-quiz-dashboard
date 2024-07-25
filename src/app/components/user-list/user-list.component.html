@@ -1,0 +1,6 @@
+<!-- src/app/components/user-list/user-list.component.html -->
+<div *ngFor="let user of users">
+    <img [src]="user.avatar" alt="{{user.first_name}} {{user.last_name}}">
+    <p>{{user.first_name}} {{user.last_name}}</p>
+  </div>
+  
