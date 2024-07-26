@@ -1,0 +1,8 @@
+<mat-card class="user-card" (click)="viewUserDetails()">
+    <mat-card-header>
+      <div mat-card-avatar class="user-image" [style.background-image]="'url(' + user.avatar + ')'"></div>
+      <mat-card-title>{{ user.first_name }} {{ user.last_name }}</mat-card-title>
+      <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+  

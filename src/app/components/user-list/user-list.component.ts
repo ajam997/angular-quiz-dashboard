@@ -1,7 +1,9 @@
-// src/app/components/user-list/user-list.component.ts
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
-import { User } from '../../models/user.model'; // Import the User model
+import { User } from '../../models/user.model';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-list',
@@ -9,14 +11,32 @@ import { User } from '../../models/user.model'; // Import the User model
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  users: User[] = [];
+  users$: Observable<User[]> | undefined;
+  currentPage = 1;
+  totalPages = 1;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
-    this.userService.getUsers(1).subscribe((users) => {
-      console.log(users);
-      
-      this.users = users});
+    this.loadUsers(this.currentPage);
+  }
+
+  loadUsers(page: number): void {
+    this.users$ = this.userService.getUsers(page).pipe(
+      map(users => {
+        // Set the total number of pages if needed
+        this.totalPages = Math.ceil(users.length / 6); // Example calculation
+        return users;
+      })
+    );
+  }
+
+  viewUser(id: number): void {
+    this.router.navigate([`/user/${id}`]);
+  }
+
+  onPageChange(page: number): void {
+    this.currentPage = page;
+    this.loadUsers(page);
   }
 }

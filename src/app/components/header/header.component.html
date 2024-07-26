@@ -1,1 +1,8 @@
-<p>header works!</p>
+<mat-toolbar color="primary">
+    <mat-form-field appearance="standard">
+      <!-- <mat-label>Search by ID</mat-label> -->
+      
+      <input matInput [(ngModel)]="searchQuery" (input)="onSearchChange(searchQuery)">
+    </mat-form-field>
+  </mat-toolbar>
+  

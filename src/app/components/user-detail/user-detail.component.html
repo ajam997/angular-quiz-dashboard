@@ -1,1 +1,17 @@
-<p>user-detail works!</p>
+<mat-card *ngIf="user; else loading" class="user-card">
+    <mat-card-header>
+      <mat-card-title>{{ user.first_name }} {{ user.last_name }}</mat-card-title>
+      <mat-card-subtitle>Email: {{ user.email }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <img [src]="user.avatar" alt="{{ user.first_name }}" class="avatar">
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="goBack()">Back</button>
+    </mat-card-actions>
+  </mat-card>
+  
+  <ng-template #loading>
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </ng-template>
+  

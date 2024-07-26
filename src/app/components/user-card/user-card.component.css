@@ -1,0 +1,13 @@
+.user-card {
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  .user-image {
+    background-size: cover;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  

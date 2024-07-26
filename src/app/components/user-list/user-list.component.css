@@ -1,0 +1,20 @@
+.user-list {
+    margin: 16px;
+  }
+  
+  mat-card {
+    margin: 8px 0;
+  }
+  
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  mat-grid-tile {
+    padding: 8px;
+  }
+  
