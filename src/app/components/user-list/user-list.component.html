@@ -1,30 +1,18 @@
-<mat-toolbar color="primary">
-    <span>User List</span>
-  </mat-toolbar>
-  
-  <div class="user-list">
-    <mat-grid-list cols="2" rowHeight="fit" gutterSize="1006px">
-      <mat-grid-tile *ngFor="let user of (users$ | async)">
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title>{{ user.first_name }} {{ user.last_name }}</mat-card-title>
-            <mat-card-subtitle>Email: {{ user.email }}</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <img [src]="user.avatar" alt="{{ user.first_name }}" class="avatar">
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-button color="primary" (click)="viewUser(user.id)">View Details</button>
-          </mat-card-actions>
-        </mat-card>
-      </mat-grid-tile>
-    </mat-grid-list>
-  
-    <mat-paginator
-      [length]="totalPages * 6"  
-      [pageSize]="6"
-      [pageSizeOptions]="[6]"
-      (page)="onPageChange($event.pageIndex + 1)">
-    </mat-paginator>
-  </div>
-  
+<div class="user-list">
+  <mat-card class="user-card" *ngFor="let user of (users$ | async)">
+    <mat-card-title-group>
+      <mat-card-title>{{ user.first_name }} {{ user.last_name }}</mat-card-title>
+      <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
+      <img [src]="user.avatar" alt="{{ user.first_name }}" class="avatar">
+    </mat-card-title-group>
+
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="viewUser(user.id)">View Details</button>
+    </mat-card-actions>
+  </mat-card>
+
+
+  <mat-paginator [length]="totalPages * 6" [pageSize]="6" [pageSizeOptions]="[6]"
+    (page)="onPageChange($event.pageIndex + 1)">
+  </mat-paginator>
+</div>

@@ -1,13 +1,10 @@
 mat-toolbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  mat-form-field {
-    width: 300px;
-  }
-  input{
-    border: red solid 1px;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}

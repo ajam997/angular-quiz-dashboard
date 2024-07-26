@@ -1,8 +1,4 @@
 <mat-toolbar color="primary">
-    <mat-form-field appearance="standard">
-      <!-- <mat-label>Search by ID</mat-label> -->
-      
-      <input matInput [(ngModel)]="searchQuery" (input)="onSearchChange(searchQuery)">
-    </mat-form-field>
-  </mat-toolbar>
-  
+    <div>USERs</div>
+    <input class="search-input" placeholder="search..." [(ngModel)]="searchQuery" (input)="onSearchChange(searchQuery)">
+</mat-toolbar>
