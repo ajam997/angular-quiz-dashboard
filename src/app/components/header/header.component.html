@@ -1,4 +1,7 @@
 <mat-toolbar color="primary">
-    <div>USERs</div>
-    <input class="search-input" placeholder="search..." [(ngModel)]="searchQuery" (input)="onSearchChange(searchQuery)">
-</mat-toolbar>
+    <div class="clickable-header" routerLink="/">
+        <img class="logo-header" src="../../../assets/Logo.png" alt="">
+      </div>
+    <input matInput placeholder="Search" [formControl]="searchControl" class="search-input">
+  </mat-toolbar>
+  

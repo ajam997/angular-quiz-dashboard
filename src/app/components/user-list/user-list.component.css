@@ -6,3 +6,35 @@
   grid-template-columns: auto auto;
   gap: 25px;
 }
+/* user-list.component.css */
+.user-list-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Make sure the container takes full viewport height */
+}
+
+.user-list {
+  flex: 1; /* This makes sure the user list takes up the remaining space */
+  overflow-y: auto; /* Allow scrolling if the content is too large */
+}
+
+mat-paginator {
+  margin-top: auto; /* Pushes the paginator to the bottom */
+}
+.user-list-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Take up full viewport height */
+}
+
+.user-list {
+  flex: 1; /* Allow it to expand and fill available space */
+  overflow-y: auto; /* Enable scrolling if needed */
+  padding: 16px; /* Optional padding */
+}
+
+mat-paginator {
+  margin-top: auto; /* Push to the bottom */
+  background: #fff; /* Optional background color */
+  padding: 8px; /* Optional padding */
+}

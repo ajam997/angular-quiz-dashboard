@@ -29,8 +29,12 @@ export class UserDetailComponent implements OnInit, OnDestroy {
 
   getUser(id: number): void {
     this.userService.getUserById(id).subscribe(
-      (user: User) => {
-        this.user = user;
+      (user: User | undefined) => {
+        if (user) {
+          this.user = user;
+        } else {
+          this.router.navigate(['/']);
+        }
       },
       error => {
         console.error('Error fetching user details:', error);

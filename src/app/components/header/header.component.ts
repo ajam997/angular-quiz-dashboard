@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { UserService } from '../../services/user.service';
-import { Observable } from 'rxjs';
-import { User } from '../../models/user.model';
+import { FormControl } from '@angular/forms';
+import { SharedService } from '../../services/shared.service';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -10,17 +9,15 @@ import { User } from '../../models/user.model';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  searchQuery: string = '';
+  searchControl = new FormControl('');
 
-  constructor(private userService: UserService, private router: Router) {}
-
-  onSearchChange(query: string): void {
-    if (query) {
-      this.userService.getUserById(+query).subscribe(user => {
-        if (user) {
-          this.router.navigate(['/user', user.id]);
-        }
-      });
-    }
+  constructor(private sharedService: SharedService) {
+    this.searchControl.valueChanges.pipe(
+      debounceTime(300) // Optional: add debounce time to reduce the number of calls
+    ).subscribe(value => {
+      console.log(value);
+      
+      this.sharedService.setSearchTerm(value || '');
+    });
   }
 }

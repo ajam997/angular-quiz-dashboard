@@ -19,6 +19,8 @@ import { UserDetailComponent } from './components/user-detail/user-detail.compon
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { LoadingInterceptor } from './services/loading.interceptor';
 import { LoadingService } from './services/loading.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatIconModule} from '@angular/material/icon';
 
 const routes: Routes = [
   { path: 'users', component: UserListComponent },
@@ -36,10 +38,10 @@ const routes: Routes = [
     UserCardComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule,MatIconModule,
     RouterModule.forRoot(routes),
     MatInputModule,MatProgressSpinnerModule,
     MatCardModule,

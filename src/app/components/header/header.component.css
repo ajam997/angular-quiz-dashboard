@@ -8,3 +8,10 @@ mat-toolbar {
   border-radius: 8px;
   border: none;
 }
+.logo-header{
+  width: 60px;
+  height: 45px;
+  margin-top:7px;
+  border-radius: 10%;
+  background-color: white;
+}
